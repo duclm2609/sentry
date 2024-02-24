@@ -175,7 +175,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 
 {{- define "sentry.clickhouse.fullname" -}}
 {{- if .Values.clickhouse.fullnameOverride -}}
-{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
+{{- .Values.clickhouse.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
 {{- $name := default .Release.Name .Values.clickhouse.nameOverride -}}
 {{- printf "%s-%s" $name "clickhouse" | trunc 63 | trimSuffix "-" -}}
